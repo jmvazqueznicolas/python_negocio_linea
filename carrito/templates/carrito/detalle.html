@@ -27,7 +27,14 @@
        </a>
       </td>
       <td>{{ producto.nombre }}</td>
-      <td>{{ item.cantidad }}</td>
+      <td>
+         <form action="{% url "carrito:agregar_carrito" producto.id %}" method="post">
+          {{ item.form_actual_cantidad.cantidad }}
+          {{ item.form_actual_cantidad.sobreescribir }}
+          <input type="submit" value="Actualizar">
+          {% csrf_token %}
+         </form>
+        </td>
       <td>
        <form action="{% url "carrito:remover_carrito" producto.id %}" 
        method="post">

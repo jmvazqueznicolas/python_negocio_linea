@@ -22,12 +22,12 @@ def remover_carrito(request, producto_id):
     carrito.remover(producto)
     return redirect('carrito:carrito_detalle')
 
-
+"""
 def carrito_detalle(request):
     carrito = Carrito(request)
     return render(request, 'carrito/detalle.html', {'carrito': carrito})
-
 """
+
 def carrito_detalle(request):
     carrito = Carrito(request)
     for item in carrito:
@@ -35,4 +35,3 @@ def carrito_detalle(request):
             'cantidad': item['cantidad'],
             'sobreescribir': True})
     return render(request, 'carrito/detalle.html', {'carrito': carrito})
-"""
