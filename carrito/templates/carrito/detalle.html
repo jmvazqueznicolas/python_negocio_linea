@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ Tu carrito de compra
+{% endblock %}
+{% block content %}
+ <h1>Tu carrito de compra</h1>
+ <table class="cart">
+  <thead>
+   <tr>
+    <th>Imagen</th>
+    <th>Producto</th>
+    <th>Cantidad</th>
+    <th>Quitar</th>
+    <th>Precio unitario</th>
+    <th>Precio</th>
+   </tr>
+  </thead>
+  <tbody>
+   {% for item in carrito %}
+    {% with producto=item.producto %}
+     <tr>
+      <td>
+       <a href="{{ producto.get_absolute_url }}">
+        <img src="{% if producto.imagen %}{{ producto.imagen.url}} 
+        {% else %}{% static "img/no_image.png" %}{% endif %}">
+       </a>
+      </td>
+      <td>{{ producto.nombre }}</td>
+      <td>{{ item.cantidad }}</td>
+      <td>
+       <form action="{% url "carrito:remover_carrito" producto.id %}" 
+       method="post">
+        <input type="submit" value="Eliminar">
+        {% csrf_token %}
+       </form>
+      </td>
+      <td class="num">${{ item.precio }}</td>
+      <td class="num">${{ item.precio_total }}</td>
+     </tr>
+    {% endwith %}
+   {% endfor %}
+<tr class="total">
+<td>Total</td>
+<td colspan="4"></td>
+<td class="num">${{ carrito.obtener_precio_total }}</td>
+</tr>
+</tbody>
+</table>
+<p class="text-right">
+<a href="{% url "tienda:lista_productos" %}" 
+class="button light">Continua comprando</a>
+<a href="#" class="button">Procesar compra</a>
+</p>
+</div>
+{% endblock %}
+
+
