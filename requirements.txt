@@ -11,7 +11,6 @@ django==4.2.4
 django-allauth==0.55.2
 django-crispy-forms==2.0
 idna==3.4
-ld_impl_linux-64==2.38
 libffi==3.4.4
 libgcc-ng==11.2.0
 libgomp==11.2.0
