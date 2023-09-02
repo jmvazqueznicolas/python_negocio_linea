@@ -57,7 +57,7 @@
 <p class="text-right">
 <a href="{% url "tienda:lista_productos" %}" 
 class="button light">Continua comprando</a>
-<a href="#" class="button">Procesar compra</a>
+<a href="{% url "ordenes:crear_orden" %}" class="button">Procesar compra</a>
 </p>
 </div>
 {% endblock %}
