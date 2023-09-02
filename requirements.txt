@@ -3,7 +3,6 @@
 # platform: linux-64
 asgiref==3.7.2
 backports-zoneinfo==0.2.1
-ca-certificates==2023.05.30
 certifi==2023.7.22
 charset-normalizer==3.2.0
 crispy-bootstrap4==2022.1
