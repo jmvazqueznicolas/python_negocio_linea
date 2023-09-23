@@ -190,4 +190,4 @@ cython_debug/
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/django,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/django,visualstudiocodesendgrid.env
